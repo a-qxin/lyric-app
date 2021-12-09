@@ -1,10 +1,6 @@
 // https://lyricsovh.docs.apiary.io/#reference/0/lyrics-of-a-song/search?console=1
 // https://api.lyrics.ovh/v1/Madeon/Miracle
 
-struct Lyrics {
-   // empty for now
-}
-
 struct SongServiceResponse: Decodable {
    let lyrics: String
 }
@@ -47,38 +43,55 @@ class ViewController: UIViewController {
    var artist: String = "Madeon"
    var songTitle: String = "Miracle"
 
-   var takeUserInputArtist: String? {
+   var takeUserInputArtist: String {
       guard
          let userInputArtist = artistField.text,
          !userInputArtist.isEmpty
       else {
-         return nil
+//         return nil
+         return ""
       }
          return userInputArtist
    }
 
-   var takeUserInputTitle: String? {
+   var takeUserInputTitle: String {
       guard
          let userInputTitle = songTitleField.text,
          !userInputTitle.isEmpty
       else {
-         return nil
+//         return nil
+         return ""
       }
          return userInputTitle
    }
 
-   override func viewDidLoad() {
-      super.viewDidLoad()
+//   var lyrics: String? {
+//      guard
+//         let takeUserInputArtist
+//      else {
+//         return nil
+//      }
+//   }
 
-      service.lyrics(artist: artist , songTitle: songTitle) { lyrics in
+   @IBAction func showLyrics(_ sender: Any) {
+      service.lyrics(artist: takeUserInputArtist , songTitle: takeUserInputTitle) { lyrics in
          print("Lyrics:")
          print(lyrics)
+//         delegate?.lyricsSet(lyrics)
       }
    }
+
+//   override func viewDidLoad() {
+//      super.viewDidLoad()
+//      service.lyrics(artist: takeUserInputArtist , songTitle: takeUserInputTitle) { lyrics in
+//         print("Lyrics:")
+//         print(lyrics)
+//      }
+//   }
 }
 
 protocol SetLyricsDelegateProtocol: AnyObject {
-   func lyricsSet(_ lyrics: String)
+   func lyricsSet(_ lyrics: Lyrics)
 }
 
 class SongViewController: UIViewController, SetLyricsDelegateProtocol {
@@ -87,19 +100,17 @@ class SongViewController: UIViewController, SetLyricsDelegateProtocol {
 
    weak var delegate: SetLyricsDelegateProtocol?
 
-   var lyrics = ""
+   var lyrics: Lyrics?
 
-   func lyricsSet(_ lyrics: String) {
+   func lyricsSet(_ lyrics: Lyrics) {
       self.lyrics = lyrics
    }
 
-//   var lyrics: String? {
-//      guard
-//         let userInput =
-//      else {
-//
-//      }
-//   }
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      if let destination = segue.destination as? ViewController {
+         destination.delegate = self
+      }
+   }
 
 }
 

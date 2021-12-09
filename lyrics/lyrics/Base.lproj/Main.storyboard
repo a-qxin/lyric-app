@@ -48,6 +48,7 @@
                                 <rect key="frame" x="184" y="456" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
+                                    <action selector="showLyrics:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rtq-8a-9IH"/>
                                     <segue destination="6tT-gz-lSx" kind="show" id="1T0-so-dAv"/>
                                 </connections>
                             </button>
@@ -71,6 +72,11 @@
                             <constraint firstItem="zLH-5Z-Cxa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="yOL-Wi-hdN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="artistField" destination="21Y-IF-0EH" id="5Xm-dv-40Q"/>
+                        <outlet property="songTitleField" destination="zLH-5Z-Cxa" id="iaE-7U-XfG"/>
+                        <outlet property="submitButton" destination="LjW-f6-y6E" id="M7Y-aQ-gSZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -84,10 +90,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMd-3r-aay">
-                                <rect key="frame" x="155" y="20" width="104" height="30"/>
-                                <state key="normal" title="Back to Search"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lyrics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyP-cu-SyX">
                                 <rect key="frame" x="20" y="100" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -98,9 +100,7 @@
                         <viewLayoutGuide key="safeArea" id="QVC-Ng-BZh"/>
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ZMd-3r-aay" firstAttribute="top" secondItem="QVC-Ng-BZh" secondAttribute="top" constant="20" id="1tO-dt-wQ7"/>
                             <constraint firstItem="fyP-cu-SyX" firstAttribute="leading" secondItem="QVC-Ng-BZh" secondAttribute="leading" constant="20" id="WMi-bO-Ww5"/>
-                            <constraint firstItem="ZMd-3r-aay" firstAttribute="centerX" secondItem="eFq-UB-Cgk" secondAttribute="centerX" id="dsn-Qf-twb"/>
                             <constraint firstItem="fyP-cu-SyX" firstAttribute="top" secondItem="QVC-Ng-BZh" secondAttribute="top" constant="100" id="lza-R4-faP"/>
                             <constraint firstItem="QVC-Ng-BZh" firstAttribute="trailing" secondItem="fyP-cu-SyX" secondAttribute="trailing" constant="20" id="sHe-u1-6dp"/>
                         </constraints>
