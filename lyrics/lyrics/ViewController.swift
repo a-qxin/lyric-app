@@ -56,3 +56,71 @@ class ViewController: UIViewController {
 
 }
 
+//class SearchViewController: UIViewController {
+//
+//   @IBOutlet var artistField: UITextField!
+//   @IBOutlet var titleField: UITextField!
+//   @IBOutlet var submitButton: UIButton!
+//
+//   let service = SongService()
+//
+//   var artist: String = "Madeon"
+//   var songTitle: String = "Miracle"
+//
+//   var takeUserInputArtist: String? {
+//      guard
+//         let userInputArtist = artistField.text,
+//         !userInputArtist.isEmpty
+//      else {
+//         return nil
+//      }
+//         return userInputArtist
+//   }
+//
+//   var takeUserInputTitle: String? {
+//      guard
+//         let userInputTitle = titleField.text,
+//         !userInputTitle.isEmpty
+//      else {
+//         return nil
+//      }
+//         return userInputTitle
+//   }
+//
+////   func artistSet(_ artist: String) {
+////      self.artist = artist
+////   }
+////   func songTitleSet(_ songTitle: String) {
+////      self.songTitle = songTitle
+////   }
+//
+//   @IBAction func buttonTapped() {
+//      artistField.resignFirstResponder()
+//      titleField.resignFirstResponder()
+//
+//      guard let artist = takeUserInputArtist else {
+//         // TODO: make labels for errors
+//         //         artistField.text = "No artist input"
+//         return
+//      }
+//      guard let songTitle = takeUserInputTitle else {
+//         // TODO: make labels for errors
+//         //         titleField.text = "No title input"
+//         return
+//      }
+//      // TODO: output lyrics based on user input artist and song title
+//      //      songTitle.text = "Artist: $\(artist)"
+//   }
+//
+//
+//   override func viewDidLoad() {
+//      super.viewDidLoad()
+//
+//      print("Before req")
+//      service.lyrics(artist: artist, songTitle: songTitle) { lyrics in
+//         print("Lyrics:")
+//         print(lyrics)
+//      }
+//      print("After req")
+//   }
+//}
