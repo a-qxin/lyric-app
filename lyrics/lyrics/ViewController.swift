@@ -10,8 +10,8 @@ struct SongServiceResponse: Decodable {
 }
 
 struct SongService {
-   func lyrics(artist: String, title: String, callback: @escaping (Lyrics) -> Void) {
-      guard let url = URL(string: "https://api.lyrics.ovh/v1/\(artist)/\(title)") else {
+   func lyrics(artist: String, songTitle: String, callback: @escaping (Lyrics) -> Void) {
+      guard let url = URL(string: "https://api.lyrics.ovh/v1/\(artist)/\(songTitle)") else {
          assertionFailure("Invalid URL")
          return
       }
@@ -37,22 +37,69 @@ import UIKit
 
 class ViewController: UIViewController {
 
+   @IBOutlet var artistField: UITextField!
+   @IBOutlet var songTitleField: UITextField!
+   @IBOutlet var submitButton: UIButton!
+
    let service = SongService()
+   weak var delegate: SetLyricsDelegateProtocol?
+
+   var artist: String = "Madeon"
+   var songTitle: String = "Miracle"
+
+   var takeUserInputArtist: String? {
+      guard
+         let userInputArtist = artistField.text,
+         !userInputArtist.isEmpty
+      else {
+         return nil
+      }
+         return userInputArtist
+   }
+
+   var takeUserInputTitle: String? {
+      guard
+         let userInputTitle = songTitleField.text,
+         !userInputTitle.isEmpty
+      else {
+         return nil
+      }
+         return userInputTitle
+   }
 
    override func viewDidLoad() {
       super.viewDidLoad()
-      
-      let artist = "Madeon"
-      let title = "Miracle"
 
-      print("Before req")
-      service.lyrics(artist: artist , title: title) { lyrics in
+      service.lyrics(artist: artist , songTitle: songTitle) { lyrics in
          print("Lyrics:")
          print(lyrics)
       }
-      print("After req")
+   }
+}
+
+protocol SetLyricsDelegateProtocol: AnyObject {
+   func lyricsSet(_ lyrics: String)
+}
+
+class SongViewController: UIViewController, SetLyricsDelegateProtocol {
+
+   @IBOutlet weak var lyricsOutput: UILabel!
+
+   weak var delegate: SetLyricsDelegateProtocol?
+
+   var lyrics = ""
+
+   func lyricsSet(_ lyrics: String) {
+      self.lyrics = lyrics
    }
 
+//   var lyrics: String? {
+//      guard
+//         let userInput =
+//      else {
+//
+//      }
+//   }
 
 }
 
@@ -87,12 +134,12 @@ class ViewController: UIViewController {
 //         return userInputTitle
 //   }
 //
-////   func artistSet(_ artist: String) {
-////      self.artist = artist
-////   }
-////   func songTitleSet(_ songTitle: String) {
-////      self.songTitle = songTitle
-////   }
+//   func artistSet(_ artist: String) {
+//      self.artist = artist
+//   }
+//   func songTitleSet(_ songTitle: String) {
+//      self.songTitle = songTitle
+//   }
 //
 //   @IBAction func buttonTapped() {
 //      artistField.resignFirstResponder()
