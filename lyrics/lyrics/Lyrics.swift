@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct Lyrics {
-   let lyrics: String
+struct Lyrics: Decodable {
+   var lyrics: String
 }

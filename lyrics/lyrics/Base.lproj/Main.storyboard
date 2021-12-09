@@ -82,10 +82,10 @@
             </objects>
             <point key="canvasLocation" x="46" y="63"/>
         </scene>
-        <!--View Controller-->
+        <!--Song View Controller-->
         <scene sceneID="QdJ-4Z-xrS">
             <objects>
-                <viewController id="6tT-gz-lSx" sceneMemberID="viewController">
+                <viewController id="6tT-gz-lSx" customClass="SongViewController" customModule="lyrics" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eFq-UB-Cgk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,6 +106,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TaG-wf-iRE"/>
+                    <connections>
+                        <outlet property="lyricsOutput" destination="fyP-cu-SyX" id="MqF-3c-JCW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FaK-Il-4xJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
