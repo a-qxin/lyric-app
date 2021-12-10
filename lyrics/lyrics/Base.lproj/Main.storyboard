@@ -11,98 +11,144 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="lyrics" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="lyrics" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ga2-ap-4C7">
-                                <rect key="frame" x="20" y="184" width="374" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DnW-MX-W0P">
-                                <rect key="frame" x="20" y="320" width="374" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ex. Celine Dion" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="21Y-IF-0EH">
-                                <rect key="frame" x="20" y="225" width="374" height="55"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vSU-Bg-Brj">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mj3-ON-tAY">
+                                        <rect key="frame" x="0.0" y="0.0" width="400" height="900"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ga2-ap-4C7">
+                                                <rect key="frame" x="20" y="80" width="41.5" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ex. Celine Dion" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="21Y-IF-0EH">
+                                                <rect key="frame" x="20" y="111" width="350" height="55"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="350" id="7Aj-jy-9ff"/>
+                                                    <constraint firstAttribute="height" constant="55" id="DjD-wO-M9P"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LjW-f6-y6E">
+                                                <rect key="frame" x="170.5" y="312" width="49" height="30"/>
+                                                <state key="normal" title="Submit"/>
+                                                <connections>
+                                                    <action selector="showLyrics:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rtq-8a-9IH"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter an artist and song title to view lyrics." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="st2-Cg-Agm">
+                                                <rect key="frame" x="20" y="402" width="350" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DnW-MX-W0P">
+                                                <rect key="frame" x="20" y="186" width="77" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ex. My Heart Will Go On" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zLH-5Z-Cxa">
+                                                <rect key="frame" x="20" y="217" width="350" height="55"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="55" id="5Oy-gk-3eK"/>
+                                                    <constraint firstAttribute="width" constant="350" id="Scn-0P-qfL"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="21Y-IF-0EH" secondAttribute="trailing" constant="20" id="0AC-0E-a6I"/>
+                                            <constraint firstItem="st2-Cg-Agm" firstAttribute="centerX" secondItem="mj3-ON-tAY" secondAttribute="centerX" id="3NF-M3-Rzl"/>
+                                            <constraint firstItem="21Y-IF-0EH" firstAttribute="top" secondItem="Ga2-ap-4C7" secondAttribute="bottom" constant="10" id="6YE-z0-kKT"/>
+                                            <constraint firstItem="21Y-IF-0EH" firstAttribute="leading" secondItem="zLH-5Z-Cxa" secondAttribute="leading" id="B7e-rk-zxk"/>
+                                            <constraint firstItem="21Y-IF-0EH" firstAttribute="leading" secondItem="Ga2-ap-4C7" secondAttribute="leading" id="Be0-kL-jUg"/>
+                                            <constraint firstAttribute="height" constant="2000" id="Ewe-7L-Jtv"/>
+                                            <constraint firstItem="Ga2-ap-4C7" firstAttribute="top" secondItem="mj3-ON-tAY" secondAttribute="top" constant="80" id="FCr-iW-Qtd"/>
+                                            <constraint firstItem="LjW-f6-y6E" firstAttribute="top" secondItem="zLH-5Z-Cxa" secondAttribute="bottom" constant="40" id="I6d-4D-tgU"/>
+                                            <constraint firstItem="DnW-MX-W0P" firstAttribute="top" secondItem="21Y-IF-0EH" secondAttribute="bottom" constant="20" id="O0Q-Of-vJp"/>
+                                            <constraint firstItem="Ga2-ap-4C7" firstAttribute="leading" secondItem="mj3-ON-tAY" secondAttribute="leading" constant="20" id="Py6-0g-Jrm"/>
+                                            <constraint firstItem="st2-Cg-Agm" firstAttribute="leading" secondItem="zLH-5Z-Cxa" secondAttribute="leading" id="TaQ-wg-cnb"/>
+                                            <constraint firstItem="LjW-f6-y6E" firstAttribute="centerX" secondItem="mj3-ON-tAY" secondAttribute="centerX" id="VhR-tT-rDX"/>
+                                            <constraint firstItem="21Y-IF-0EH" firstAttribute="trailing" secondItem="zLH-5Z-Cxa" secondAttribute="trailing" id="cWU-6q-7j5"/>
+                                            <constraint firstItem="zLH-5Z-Cxa" firstAttribute="top" secondItem="DnW-MX-W0P" secondAttribute="bottom" constant="10" id="g8D-dZ-Jq5"/>
+                                            <constraint firstItem="DnW-MX-W0P" firstAttribute="leading" secondItem="mj3-ON-tAY" secondAttribute="leading" constant="20" id="gxo-bn-de3"/>
+                                            <constraint firstItem="st2-Cg-Agm" firstAttribute="top" secondItem="LjW-f6-y6E" secondAttribute="bottom" constant="60" id="hgW-AK-3AU"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="2000" id="hnX-O9-dMb"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="DjD-wO-M9P"/>
+                                    <constraint firstItem="mj3-ON-tAY" firstAttribute="top" secondItem="vSU-Bg-Brj" secondAttribute="top" id="9GK-Tg-bk1"/>
+                                    <constraint firstItem="mj3-ON-tAY" firstAttribute="leading" secondItem="vSU-Bg-Brj" secondAttribute="leading" id="B7r-qc-80D"/>
+                                    <constraint firstAttribute="bottom" secondItem="mj3-ON-tAY" secondAttribute="bottom" id="PsD-Go-nyF"/>
+                                    <constraint firstAttribute="trailing" secondItem="mj3-ON-tAY" secondAttribute="trailing" id="gFc-AW-PQh"/>
+                                    <constraint firstItem="mj3-ON-tAY" firstAttribute="centerX" secondItem="vSU-Bg-Brj" secondAttribute="centerX" id="myx-s3-TN7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ex. My Heart Will Go On" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zLH-5Z-Cxa">
-                                <rect key="frame" x="20" y="361" width="374" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="5Oy-gk-3eK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LjW-f6-y6E">
-                                <rect key="frame" x="184" y="456" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="showLyrics:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rtq-8a-9IH"/>
-                                    <segue destination="6tT-gz-lSx" kind="show" id="1T0-so-dAv"/>
-                                </connections>
-                            </button>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Ga2-ap-4C7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="140" id="12W-iO-bBK"/>
-                            <constraint firstItem="Ga2-ap-4C7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="DZE-8d-c5F"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DnW-MX-W0P" secondAttribute="trailing" constant="20" id="Enq-g6-FUs"/>
-                            <constraint firstItem="21Y-IF-0EH" firstAttribute="top" secondItem="Ga2-ap-4C7" secondAttribute="bottom" constant="20" id="IK8-zT-Kvj"/>
-                            <constraint firstItem="DnW-MX-W0P" firstAttribute="top" secondItem="21Y-IF-0EH" secondAttribute="bottom" constant="40" id="NDH-AQ-lFM"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="21Y-IF-0EH" secondAttribute="trailing" constant="20" id="R4p-5u-ZGw"/>
-                            <constraint firstItem="LjW-f6-y6E" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZyV-Ma-4Dw"/>
-                            <constraint firstItem="21Y-IF-0EH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aeE-eR-MLO"/>
-                            <constraint firstItem="LjW-f6-y6E" firstAttribute="top" secondItem="zLH-5Z-Cxa" secondAttribute="bottom" constant="40" id="gew-AL-sn2"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zLH-5Z-Cxa" secondAttribute="trailing" constant="20" id="iWy-hU-M0i"/>
-                            <constraint firstItem="DnW-MX-W0P" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="kSR-Hv-9tL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ga2-ap-4C7" secondAttribute="trailing" constant="20" id="mPx-GB-TQs"/>
-                            <constraint firstItem="zLH-5Z-Cxa" firstAttribute="top" secondItem="DnW-MX-W0P" secondAttribute="bottom" constant="20" id="y0G-Zw-GOE"/>
-                            <constraint firstItem="zLH-5Z-Cxa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="yOL-Wi-hdN"/>
+                            <constraint firstItem="vSU-Bg-Brj" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="7yP-4w-aau"/>
+                            <constraint firstItem="vSU-Bg-Brj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="CSX-35-3CB"/>
+                            <constraint firstAttribute="bottom" secondItem="vSU-Bg-Brj" secondAttribute="bottom" id="ETK-Tc-7pb"/>
+                            <constraint firstItem="vSU-Bg-Brj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="INg-68-Ed7"/>
                         </constraints>
                     </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="340" height="800"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="artistField" destination="21Y-IF-0EH" id="5Xm-dv-40Q"/>
+                        <outlet property="lyricOutput" destination="st2-Cg-Agm" id="rft-Ys-kCl"/>
                         <outlet property="songTitleField" destination="zLH-5Z-Cxa" id="iaE-7U-XfG"/>
                         <outlet property="submitButton" destination="LjW-f6-y6E" id="M7Y-aQ-gSZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="46" y="63"/>
+            <point key="canvasLocation" x="44.927536231884062" y="62.946428571428569"/>
         </scene>
         <!--Song View Controller-->
         <scene sceneID="QdJ-4Z-xrS">
             <objects>
                 <viewController id="6tT-gz-lSx" customClass="SongViewController" customModule="lyrics" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eFq-UB-Cgk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lyrics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyP-cu-SyX">
-                                <rect key="frame" x="20" y="100" width="374" height="21"/>
+                                <rect key="frame" x="20" y="174" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huX-GR-Qh7">
+                                <rect key="frame" x="20" y="134" width="82" height="30"/>
+                                <state key="normal" title="Show Lyrics"/>
+                                <connections>
+                                    <action selector="showLyrics:" destination="6tT-gz-lSx" eventType="touchUpInside" id="fkV-MO-ts4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QVC-Ng-BZh"/>
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fyP-cu-SyX" firstAttribute="leading" secondItem="QVC-Ng-BZh" secondAttribute="leading" constant="20" id="WMi-bO-Ww5"/>
-                            <constraint firstItem="fyP-cu-SyX" firstAttribute="top" secondItem="QVC-Ng-BZh" secondAttribute="top" constant="100" id="lza-R4-faP"/>
+                            <constraint firstItem="huX-GR-Qh7" firstAttribute="top" secondItem="QVC-Ng-BZh" secondAttribute="top" constant="90" id="YZt-aQ-zWf"/>
                             <constraint firstItem="QVC-Ng-BZh" firstAttribute="trailing" secondItem="fyP-cu-SyX" secondAttribute="trailing" constant="20" id="sHe-u1-6dp"/>
+                            <constraint firstItem="fyP-cu-SyX" firstAttribute="top" secondItem="QVC-Ng-BZh" secondAttribute="top" constant="130" id="tfk-N2-rPb"/>
+                            <constraint firstItem="huX-GR-Qh7" firstAttribute="leading" secondItem="QVC-Ng-BZh" secondAttribute="leading" constant="20" id="uTm-8i-xVQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TaG-wf-iRE"/>

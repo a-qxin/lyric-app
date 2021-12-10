@@ -8,5 +8,5 @@
 import Foundation
 
 struct Lyrics: Decodable {
-   var lyrics: String
+   var lyrics: String?
 }

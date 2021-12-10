@@ -1,12 +1,15 @@
 // https://lyricsovh.docs.apiary.io/#reference/0/lyrics-of-a-song/search?console=1
 // https://api.lyrics.ovh/v1/Madeon/Miracle
-
-
+// https://www.appsdeveloperblog.com/uilabel-with-multiple-lines-example-in-swift/
+// https://stackoverflow.com/questions/54170821/swift-error-uibutton-currenttitle-must-be-used-from-main-thread-only
+// UIScrollView https://www.youtube.com/watch?v=orONrVT6CAg
+// custom launch screen https://www.youtube.com/watch?v=kbGsI5O9rWY
 
 struct SongService {
-   func lyrics(artist: String, songTitle: String, callback: @escaping (Lyrics) -> Void) {
+   func lyrics(artist: String, songTitle: String, callback: @escaping (String?) -> Void) {
       guard let url = URL(string: "https://api.lyrics.ovh/v1/\(artist)/\(songTitle)") else {
-         assertionFailure("Invalid URL")
+//         assertionFailure("Invalid URL")
+//         response = "No lyrics found."
          return
       }
       let task = URLSession.shared.dataTask(with: url) { (maybeData: Data?, maybeUrlResponse: URLResponse?, maybeError: Error?) in
@@ -18,8 +21,8 @@ struct SongService {
 
          do {
             let response = try decoder.decode(SongServiceResponse.self, from: data)
-            print("got to this sicc response here")
             print(response)
+            callback(response.lyrics)
          } catch {
             print(error)
          }
@@ -32,15 +35,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
-   @IBOutlet var artistField: UITextField!
-   @IBOutlet var songTitleField: UITextField!
+   @IBOutlet weak var artistField: UITextField!
+   @IBOutlet weak var songTitleField: UITextField!
    @IBOutlet var submitButton: UIButton!
+   @IBOutlet var lyricOutput: UILabel!
 
    let service = SongService()
    weak var delegate: SetLyricsDelegateProtocol?
 
    var artist: String = "Madeon"
    var songTitle: String = "Miracle"
+   var lyrics: Lyrics?
 
    var takeUserInputArtist: String {
       guard
@@ -65,47 +70,102 @@ class ViewController: UIViewController {
    }
 
    @IBAction func showLyrics(_ sender: Any) {
-//      let controller = SongViewController()
-//      controller.delegate = self
       service.lyrics(artist: takeUserInputArtist , songTitle: takeUserInputTitle) { lyrics in
-         print("before delEgate stuff in showLyrics ibaction submit")
+         guard let lyrics = lyrics else {
+            return
+         }
+//         lyrics = lyrics.replacingOccurrences(of: "\r", with: "")
+         let error = "No lyrics found."
+         DispatchQueue.main.async {
+            if lyrics != nil {
+               self.lyricOutput.text = lyrics
+            } else {
+               self.lyricOutput.text = error // doesn't actually show
+            }
+         }
 //         self.delegate?.lyricsSet(lyrics)
-         print("after delegatestuff")
       }
    }
 
    override func viewDidLoad() {
-      super.viewDidLoad()
+      // allow infinite height/number of lyrics lines
+      lyricOutput.numberOfLines = 0
    }
+
+//   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//      service.lyrics(artist: takeUserInputArtist , songTitle: takeUserInputTitle) { lyrics in
+//         print("we get into service. lyrics: ")
+//         guard let lyrics = lyrics else {
+//            return
+//         }
+//         self.lyricOutput.text = lyrics
+//         self.delegate?.lyricsSet(lyrics)
+//      }
+//   }
 }
 
-class SongViewController: UIViewController {
+class SongViewController: UIViewController, SetLyricsDelegateProtocol {
 
    @IBOutlet weak var lyricsOutput: UILabel!
 
-   weak var delegate: SetLyricsDelegateProtocol?
+   var lyrics: String? = "Lyrics"
 
-//   var lyrics: Lyrics?
-//
-//   func lyricsSet(_ lyrics: Lyrics) {
-//      self.lyrics = lyrics
+   // for delegate protocol
+   func lyricsSet(_ lyrics: String) {
+      self.lyrics = lyrics
+   }
+
+//   override func viewDidLoad() {
+//      guard case lyricsOutput.text = lyrics?.lyrics else {
+//         print("invalid lyrics") // prints
+//         return
+//      }
+//      lyricsOutput.delegate = self
+//      lyricsOutput.text = lyrics
+//      print("lyricsin svc")
+//      print(lyrics) // nil
 //   }
 
-   func applyLyrics(_ lyrics: Lyrics) {
-//      print(lyrics)
-      print("Got to applyLyrics")
-      lyricsOutput.text = "Lyrics\n $\(lyrics.lyrics)"
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      if let destination = segue.destination as? ViewController {
+         destination.delegate = self
+      }
    }
 
+   @IBAction func showLyrics(_ sender: UIButton) {
+      guard let lyrics = lyrics else {
+         lyricsOutput.text = "Invalid Artist/Song title combo"
+         return
+      }
+      print("in the show lyrics of svc")
+      print(lyrics)
+      lyricsOutput.text = "$\(lyrics)"
+   }
+
+//   func applyLyrics(_ lyrics: Lyrics) {
+//      lyricsOutput.text = "Lyrics\n $\(lyrics.lyrics)"
+//   }
 }
+
+
+//protocol SetLyricsDelegateProtocol: AnyObject {
+//   func songViewController(_ viewController: SongViewController, didUpdateText text: String)
+//}
+//
+//extension SongViewController: SetLyricsDelegateProtocol {
+//   func songViewController(_ viewController: SongViewController, didUpdateText text: String) {
+//      lyricsOutput.text = text
+//   }
+//}
 
 protocol SetLyricsDelegateProtocol: AnyObject {
-   func lyricsSet(_ lyrics: Lyrics)
+   func lyricsSet(_ lyrics: String)
 }
+//
+//extension SongViewController: SetLyricsDelegateProtocol {
+//   func lyricsSet(_ lyrics: Lyrics) {
+//      applyLyrics(lyrics)
+//   }
+//}
 
-extension SongViewController: SetLyricsDelegateProtocol {
-   func lyricsSet(_ lyrics: Lyrics) {
-      applyLyrics(lyrics)
-      print("we are SETTINg lyrics in set lyrics delegate protocol")
-   }
-}
+
