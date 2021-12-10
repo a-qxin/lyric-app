@@ -49,7 +49,7 @@ class ViewController: UIViewController {
 
    var takeUserInputArtist: String {
       guard
-         let userInputArtist = artistField.text,
+         let userInputArtist = artistField.text?.replacingOccurrences(of: " ", with: "%20"),
          !userInputArtist.isEmpty
       else {
 //         return nil
@@ -60,7 +60,7 @@ class ViewController: UIViewController {
 
    var takeUserInputTitle: String {
       guard
-         let userInputTitle = songTitleField.text,
+         let userInputTitle = songTitleField.text?.replacingOccurrences(of: " ", with: "%20"),
          !userInputTitle.isEmpty
       else {
 //         return nil
