@@ -15,6 +15,8 @@
 		970F1EEB276039460000AD52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 970F1EE9276039460000AD52 /* LaunchScreen.storyboard */; };
 		970F1EF6276039470000AD52 /* lyricsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970F1EF5276039470000AD52 /* lyricsTests.swift */; };
 		970F1F01276039470000AD52 /* lyricsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970F1F00276039470000AD52 /* lyricsUITests.swift */; };
+		978098BD2762A121007CD20A /* Lyrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978098BC2762A121007CD20A /* Lyrics.swift */; };
+		978098BF2762ACE5007CD20A /* SongServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978098BE2762ACE5007CD20A /* SongServiceResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		970F1EFC276039470000AD52 /* lyricsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = lyricsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		970F1F00276039470000AD52 /* lyricsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lyricsUITests.swift; sourceTree = "<group>"; };
 		970F1F02276039470000AD52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		978098BC2762A121007CD20A /* Lyrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lyrics.swift; sourceTree = "<group>"; };
+		978098BE2762ACE5007CD20A /* SongServiceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongServiceResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				970F1EE7276039460000AD52 /* Assets.xcassets */,
 				970F1EE9276039460000AD52 /* LaunchScreen.storyboard */,
 				970F1EEC276039460000AD52 /* Info.plist */,
+				978098BC2762A121007CD20A /* Lyrics.swift */,
+				978098BE2762ACE5007CD20A /* SongServiceResponse.swift */,
 			);
 			path = lyrics;
 			sourceTree = "<group>";
@@ -259,6 +265,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				970F1EE3276039440000AD52 /* ViewController.swift in Sources */,
+				978098BF2762ACE5007CD20A /* SongServiceResponse.swift in Sources */,
+				978098BD2762A121007CD20A /* Lyrics.swift in Sources */,
 				970F1EDF276039440000AD52 /* AppDelegate.swift in Sources */,
 				970F1EE1276039440000AD52 /* SceneDelegate.swift in Sources */,
 			);
